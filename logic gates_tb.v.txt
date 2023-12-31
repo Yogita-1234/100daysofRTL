@@ -1,0 +1,26 @@
+module logic_gate_tb;
+  reg A,B;
+  wire W,Y,Z;
+  
+  logic_gate logic_gate_inst(W,Y,Z,A,B);
+  
+  initial
+    begin
+      $monitor("t=%0t, W=%0b, Y=%0b, Z=%0b, A=%0b, B=%0b", $time, W,Y,Z,A,B);
+      
+      #5 A=0; B=0;
+      #5 A=0; B=1;
+      #5 A=1; B=0;
+      #5 A=1; B=1;
+    end
+      
+      initial
+        begin
+          $dumpfile("dump.vcd");
+          $dumpvars;
+          #25 $finish;
+        end
+        
+      
+endmodule
+      
