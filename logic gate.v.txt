@@ -1,0 +1,21 @@
+module logic_gate(w,y,z,a,b);
+  input wire a,b;
+  output reg y,z;
+  output wire w;
+
+  //Gate-level modeling
+  and  X1 (y,a,b);
+ 
+  
+  //Dataflow-level modeling
+  assign w = ~a^b;
+  
+  
+  //Behavioral-level modeling
+  always @ (a,b)
+    begin
+      z = a^b;
+      end
+  
+endmodule
+      
